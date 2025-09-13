@@ -11,16 +11,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: '18'
+
       - name: Install deps
         run: |
           if [ -f package-lock.json ]; then npm ci; else npm install; fi
+
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
-      - name: Run tests
-        run: npx playwright test
+
+      # 👇 AQUÍ forzamos HTML en CI
+      - name: Run Playwright tests (HTML)
+        run: npx playwright test --reporter=html
+
+      # 👇 Subimos la carpeta 'playwright-report' como artefacto
       - name: Upload HTML report
         if: always()
         uses: actions/upload-artifact@v4
