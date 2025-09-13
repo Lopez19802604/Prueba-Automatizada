@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Lopez19802604/Prueba-Automatizada/issues"
   },
-  "homepage": "https://github.com/Lopez19802604/Prueba-Automatizada#readme"
+  "homepage": "https://github.com/Lopez19802604/Prueba-Automatizada#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
+  }
 }
